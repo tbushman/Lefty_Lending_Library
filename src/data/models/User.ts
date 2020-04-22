@@ -8,7 +8,9 @@ export interface IUser {
     Email: string,
     Phone: string,
     Location: UserLocation,
-    Theme: 'dark'|'light'
+    Theme: 'dark'|'light',
+    gaaccess: string,
+    garefresh: string
 }
 
 @jsonObject
@@ -31,6 +33,14 @@ export class User implements IUser {
     @observable
     @jsonMember({ constructor: String })
     Theme: 'dark'|'light';
+
+    @observable
+    @jsonMember({ constructor: String })
+    gaaccess: string;
+
+    @observable
+    @jsonMember({ constructor: String })
+    garefresh: string;
 
     public static initializeBackendUserFromFirebaseUser(firebaseUser: firebase.User): IUser{
         let user = new User();

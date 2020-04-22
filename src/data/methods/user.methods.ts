@@ -19,6 +19,18 @@ export class UserMethods {
         return this._userSerializer.parse(rawUser.data()) || null;
     }
 
+    public async findUserByGoogleID(googleId: string): Promise<User|null> {
+      try {
+        await this._storage.collection(Collections.USERS_COLLECTION).orderByChild('googleid').equalTo(googleId).on("child_added", function(snapshot) {
+          return snapshot.val();
+        });
+
+      }
+      catch(error){
+        throw new Eroor(`Failed to look up user by Google ID`);
+      }
+    }
+
     public async createUser(newUser: User){
         try{
             await this._storage.collection(Collections.USERS_COLLECTION).doc(newUser.uid).set({... newUser});
@@ -37,6 +49,18 @@ export class UserMethods {
         }
         catch(error){
             throw new Error(`Failed to update backend user: ${error}`);
+        }
+    }
+    
+    public async setUserTokens(userId: string, token: string, refresh: string){
+        try{
+            return await this._storage.collection(Collections.USERS_COLLECTION).doc(userId).update({
+                gaaccess: token,
+                garefresh: refresh
+            });
+        }
+        catch(error){
+            throw new Error(`Failed to update backend user tokens: ${error}`);
         }
     }
 }

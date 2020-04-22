@@ -17,7 +17,9 @@
     "@types/react-router": "^4.4.1",
     "@types/react-router-dom": "^4.3.1",
     "base-64": "^0.1.0",
+    "body-parser": "^1.19.0",
     "cross-env": "^5.2.0",
+    "express": "^4.17.1",
     "firebase": "^5.7.0",
     "history": "^4.7.2",
     "lodash": "^4.17.11",
@@ -25,6 +27,8 @@
     "mobx-react": "^5.2.8",
     "mobx-react-router": "^4.0.5",
     "moment": "^2.23.0",
+    "passport": "^0.4.1",
+    "passport-google-oauth2": "^0.2.0",
     "pubsub-js": "^1.7.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
@@ -44,6 +48,7 @@
     "predeploy": "yarn run build",
     "deploy": "gh-pages -b master -d build"
   },
+  "proxy": "http://localhost:5000/",
   "devDependencies": {
     "@types/jest": "^23.3.10",
     "@types/node": "^10.12.12",

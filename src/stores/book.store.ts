@@ -13,7 +13,7 @@ export class BookStore{
     constructor() {
         pubsub.subscribe(USER_AUTHENTICATED, this.onUserAuthenticated);
     }
-
+    
     @observable
     public lenderBooks: Book[] | null;
 

@@ -69,7 +69,20 @@ export class AuthStore {
             signInFlow: 'popup',
             signInOptions: [
                 firebase.auth.EmailAuthProvider.PROVIDER_ID,
-                firebase.auth.GoogleAuthProvider.PROVIDER_ID
+                {
+                  provider: firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+                  scopes: [
+                    'https://www.googleapis.com/auth/plus.login',
+                    'https://www.googleapis.com/auth/userinfo.email', 
+                    'https://www.googleapis.com/auth/userinfo.profile', 
+                    'https://www.googleapis.com/auth/drive', 'https://www.googleapis.com/auth/drive.appdata', 'https://www.googleapis.com/auth/drive.metadata', 'https://www.googleapis.com/auth/drive.file'
+                  ],
+                  customParameters: {
+                    // Forces account selection even when one account
+                    // is available.
+                    prompt: 'select_account'
+                  }
+                }
             ],
             callbacks: {
                 signInSuccessWithAuthResult: () => false,
@@ -168,6 +181,34 @@ export class AuthStore {
         }
         this.isAdmin = false;
     }
+
+    //todo: google drive auth
+    // private ensureApiTokens = async (userId: string) => {
+    //   const OAuth2 = google.auth.OAuth2;
+    //   try {
+    //     const existingUser = await client.users.getMe(userId).googleId;
+    //   }
+    //   catch(error) {
+    //     console.log('Failed to getExistingUser', error);
+    //     return;
+    //   }
+    //   const authClient = new OAuth2(process.env.GOOGLE_OAUTH_CLIENTID, process.env.GOOGLE_OAUTH_SECRET, (process.env.NODE_ENV === 'production' ? process.env.GOOGLE_CALLBACK_URL : process.env.GOOGLE_CALLBACK_URL_DEV));
+    //   authClient.setCredentials({
+    //     refresh_token: existingUser.garefresh,
+    //     access_token: existingUser.gaaccess
+    //   });
+    //   google.options({auth:authClient})
+    //   authClient.refreshAccessToken()
+    //   .then(function(response){
+    //     if (!response.tokens && !response.credentials) {
+    //       console.log('Failed to refreshAccessToken', error);
+    //       return;
+    //     }
+    //     const tokens = response.tokens || response.credentials;
+    //     await client.users.setUserTokens(userId, tokens.access_token, tokens.refresh_token)
+    // 
+    //   })
+    // }
 
     //#endregion
 
