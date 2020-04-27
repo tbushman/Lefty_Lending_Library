@@ -21,18 +21,20 @@
     "cross-env": "^5.2.0",
     "express": "^4.17.1",
     "firebase": "^5.7.0",
+    "google-auth-library": "^6.0.0",
+    "googleapis": "^49.0.0",
     "history": "^4.7.2",
+    "joi": "^14.3.1",
     "lodash": "^4.17.11",
     "mobx": "^5.7.0",
     "mobx-react": "^5.2.8",
     "mobx-react-router": "^4.0.5",
     "moment": "^2.23.0",
-    "passport": "^0.4.1",
-    "passport-google-oauth2": "^0.2.0",
     "pubsub-js": "^1.7.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-firebaseui": "^3.1.2",
+    "react-google-picker": "^0.1.0",
     "react-helmet": "^5.2.0",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
@@ -43,18 +45,23 @@
     "start": "react-scripts-ts start",
     "build": "react-scripts-ts build",
     "build:staging": "cross-env REACT_APP_BUILD_ENV=staging react-scripts-ts build",
-    "test": "react-scripts-ts test --env=jsdom",
+    "test": "cross-env TEST_ENV=true RECORD_ENV=false react-scripts-ts test --env=jsdom",
+    "test-update": "cross-env TEST_ENV=true RECORD_ENV=true react-scripts-ts test",
     "eject": "react-scripts-ts eject",
     "predeploy": "yarn run build",
     "deploy": "gh-pages -b master -d build"
   },
-  "proxy": "http://localhost:5000/",
   "devDependencies": {
     "@types/jest": "^23.3.10",
     "@types/node": "^10.12.12",
     "@types/react": "^16.7.13",
     "@types/react-dom": "^16.0.11",
+    "expect": "^25.4.0",
     "gh-pages": "^2.0.1",
+    "nock": "^12.0.3",
     "typescript": "^3.2.1"
+  },
+  "jest": {
+    "watchPathIgnorePatterns": ["node_modules"]
   }
 }

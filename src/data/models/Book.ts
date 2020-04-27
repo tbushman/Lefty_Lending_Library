@@ -9,6 +9,9 @@ export interface IBook {
 
 @jsonObject
 export class Book implements IBook {
+    // @jsonMember({constructor: String})
+    // isbn10: string
+    
     @jsonMember({constructor: String})
     isbn13: string
 
