@@ -22,7 +22,7 @@ const styles: any = (theme: any) => ({
         minHeight: '50px'
     },
     warningParent: {
-        padding: theme.spacing.unit
+        padding: theme.spacing(1)
     }
 });
 

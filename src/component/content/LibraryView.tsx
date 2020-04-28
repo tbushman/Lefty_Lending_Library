@@ -9,8 +9,8 @@ const styles: any = (theme: any) => ({
         margin: 0,
     },
     tight: {
-        marginLeft: -theme.spacing.unit,
-        marginRight: -theme.spacing.unit,
+        marginLeft: -theme.spacing(1),
+        marginRight: -theme.spacing(1),
         width: 'auto'
     }
 });

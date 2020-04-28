@@ -5,7 +5,7 @@ import { LibraryView } from 'component/content';
 
 const styles: any = (theme: any) => ({
     tightTop: {
-        marginTop: -theme.spacing.unit
+        marginTop: -theme.spacing(1)
     }
 });
 

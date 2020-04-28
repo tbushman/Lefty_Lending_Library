@@ -16,12 +16,12 @@ const styles: any = theme => ({
         minWidth: 450,
     },
     authorChip: {
-        marginRight: theme.spacing.unit,
-        marginBottom: theme.spacing.unit
+        marginRight: theme.spacing(1),
+        marginBottom: theme.spacing(1)
     },
 
     content: {
-        marginLeft: theme.spacing.unit,
+        marginLeft: theme.spacing(1),
         maxWidth: '300px'
     },
     cover: {
@@ -30,7 +30,7 @@ const styles: any = theme => ({
     },
     smallPaper: {
         maxWidth: '400px',
-        padding: theme.spacing.unit
+        padding: theme.spacing(1)
     }
 });
 

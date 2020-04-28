@@ -22,11 +22,11 @@ interface IAddContentDialogState {
 
 const styles: any = theme => ({
     ISBNInput: {
-        margin: theme.spacing.unit*3,
+        margin: theme.spacing(3),
         maxWidth: 300
     },
     chip: {
-        marginLeft: theme.spacing.unit
+        marginLeft: theme.spacing(1)
     }
 });
 

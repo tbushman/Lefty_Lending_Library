@@ -12,7 +12,7 @@ export interface IDrawerMenuItemProps {
 
 const styles: any = (theme: any) => ({
     navButton: {
-        margin: theme.spacing.unit,
+        margin: theme.spacing(1),
         justifyContent: 'left'
     }
 });

@@ -7,7 +7,7 @@ import PersonIcon from '@material-ui/icons/Person'
 
 const styles: any = theme => ({
     title:{
-        margin: theme.spacing.unit
+        margin: theme.spacing(1)
     }
 });
 

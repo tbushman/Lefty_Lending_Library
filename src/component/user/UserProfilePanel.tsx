@@ -31,9 +31,9 @@ const styles: any = (theme: any) => ({
         },
     },
     tight: {
-        marginTop: -theme.spacing.unit,
-        marginLeft: -theme.spacing.unit,
-        marginRight: -theme.spacing.unit
+        marginTop: -theme.spacing(1),
+        marginLeft: -theme.spacing(1),
+        marginRight: -theme.spacing(1)
     },
     settingsIcon: {
         marginLeft: 'auto'

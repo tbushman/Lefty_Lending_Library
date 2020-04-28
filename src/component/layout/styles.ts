@@ -9,7 +9,7 @@ export const styles: any = (theme: any) => ({
         overflowX: 'hidden',
         display: 'flex',
         flexDirection: 'row',
-        padding: theme.spacing.unit,
+        padding: theme.spacing(1),
         [theme.breakpoints.up("sm")]: {
             top: 64,
         },

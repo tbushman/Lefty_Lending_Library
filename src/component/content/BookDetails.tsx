@@ -11,11 +11,11 @@ import { BookLenderTable } from '.';
 
 const styles: any = (theme: any) => ({
     root: {
-        marginTop: theme.spacing.unit,
-        marginBottom: theme.spacing.unit
+        marginTop: theme.spacing(1),
+        marginBottom: theme.spacing(1)
     },
     descriptionDialogContent: {
-        padding: theme.spacing.unit * 4,
+        padding: theme.spacing(4),
     }
 });
 

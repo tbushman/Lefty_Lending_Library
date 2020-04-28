@@ -11,7 +11,7 @@ const styles: any = (theme: any) => ({
     },
     label: {
         alignSelf: 'center',
-        marginRight: theme.spacing.unit
+        marginRight: theme.spacing(1)
     }
 });
 

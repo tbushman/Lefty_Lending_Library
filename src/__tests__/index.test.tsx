@@ -1,37 +1,60 @@
 import { envConfig } from '../config';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Router, withRouter } from 'react-router';
 import { Provider } from "mobx-react";
 import { onSnapshot } from "mobx-state-tree";
 import App from '../component/app';
-// import expect from 'expect';
 import * as path from 'path';
 // import nock from 'nock';
-// import SyncGoogleSheetDialog from '../src/component/content/SyncGoogleSheetDialog';
+import SyncGoogleSheetDialog from '../src/component/content/SyncGoogleSheetDialog';
 // import MockSyncGoogleSheetDialog from './fixtures/SyncGoogleSheetDialog';
-// import Lll from '../src';
 // const nockBack = nock.back;
 // nockBack.fixtures = path.join(__dirname, '.', '__nock-fixtures__');
 import * as stores from 'stores';
+import { createBrowserHistory } from 'history';
+import { syncHistoryWithStore } from 'mobx-react-router';
+
+const browserHistory = createBrowserHistory();
+const routerStore = stores.routerStore;
+
+const history = syncHistoryWithStore(browserHistory, routerStore);
 
 const recording = envConfig.recordEnv;
 // nockBack.setMode('record');
-describe('SyncGoogleSheetDialog API calls', async () => {
-  // let googleSheets
+describe('SyncGoogleSheetDialog API calls', () => {
+  let googleSheets;
   beforeAll(async() => {
-    // googleSheets = await new SyncGoogleSheetDialog();
   });
-  test('should render', () => {
-    const div = document.createElement('div');
+  // test('should render', () => {
+  //   document.body.innerHTML = `
+  //     <div id="test"></div>
+  //   `
+  //   ReactDOM.render(
+  //     <Provider {...stores}>
+  // 
+  //     </Provider>,
+  //     document.getElementById('test') as HTMLElement
+  //   );
+  //   const renderedDiv = document.getElementById('test');
+  //   expect(renderedDiv).not.toBeNull()
+  // })
+  test('should load app', async() => {
+    document.body.innerHTML = `
+      <div id="root"></div>
+    `    // googleSheets = await new SyncGoogleSheetDialog();
+    const AppWithRouter = withRouter(App);
+
     ReactDOM.render(
       <Provider {...stores}>
-        
+        <Router history={history}>
+          <AppWithRouter/>
+        </Router>
       </Provider>,
-      div
+      document.getElementById('root') as HTMLElement
     );
-    // const div = document.createElement('div');
-    // ReactDOM.render(<App />, div);
-    // const renderedDiv = document.getElementByTagName('div');
-    // expect(renderedDiv).not.toBeNull()
+
+    const renderedDiv = document.getElementById('root');
+    expect(renderedDiv).not.toBeNull()
   })
 })

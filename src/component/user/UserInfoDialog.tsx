@@ -10,11 +10,11 @@ import { AuthStore } from 'stores';
 
 const styles: any = theme => ({
     fieldInput: {
-        margin: theme.spacing.unit,
+        margin: theme.spacing(1),
         minWidth: 300,
     },
     formControl: {
-        margin: theme.spacing.unit,
+        margin: theme.spacing(1),
         minWidth: 300
     },
     userInfoDialog:{

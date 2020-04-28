@@ -10,7 +10,7 @@ const styles: any = (theme: any) => {
             pointerEvents: 'none',
         },
         paper: {
-            padding: theme.spacing.unit,
+            padding: theme.spacing(1),
         },
         ellipsesIcon: {
             verticalAlign: 'middle',
@@ -19,7 +19,7 @@ const styles: any = (theme: any) => {
             borderRadius: '50%',
             height:'100%',
             minWidth: '30px',
-            marginLeft: theme.spacing.unit
+            marginLeft: theme.spacing(1)
         }
     }
 };
