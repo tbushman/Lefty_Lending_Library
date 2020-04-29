@@ -1,4 +1,4 @@
-import { envConfig } from '../config';
+import envConfig from '../config/env.config';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, withRouter } from 'react-router';
@@ -24,7 +24,23 @@ const recording = envConfig.recordEnv;
 // nockBack.setMode('record');
 describe('SyncGoogleSheetDialog API calls', () => {
   let googleSheets;
+  const AppWithRouter = withRouter(App);
   beforeAll(async() => {
+    document.body.innerHTML = `
+      <div id="root"></div>
+    `    // googleSheets = await new SyncGoogleSheetDialog();
+
+    ReactDOM.render(
+      <Provider {...stores}>
+        <Router history={history}>
+          <AppWithRouter/>
+        </Router>
+      </Provider>,
+      document.getElementById('root') as HTMLElement
+    );
+
+    const renderedDiv = document.getElementById('root');
+    expect(renderedDiv).not.toBeNull()
   });
   // test('should render', () => {
   //   document.body.innerHTML = `
@@ -40,21 +56,5 @@ describe('SyncGoogleSheetDialog API calls', () => {
   //   expect(renderedDiv).not.toBeNull()
   // })
   test('should load app', async() => {
-    document.body.innerHTML = `
-      <div id="root"></div>
-    `    // googleSheets = await new SyncGoogleSheetDialog();
-    const AppWithRouter = withRouter(App);
-
-    ReactDOM.render(
-      <Provider {...stores}>
-        <Router history={history}>
-          <AppWithRouter/>
-        </Router>
-      </Provider>,
-      document.getElementById('root') as HTMLElement
-    );
-
-    const renderedDiv = document.getElementById('root');
-    expect(renderedDiv).not.toBeNull()
   })
 })

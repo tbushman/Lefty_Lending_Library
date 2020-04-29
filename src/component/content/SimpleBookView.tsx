@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Book } from 'data/models';
 import { withStyles, Grid, Typography, Chip, Paper, Tooltip } from '@material-ui/core';
 import PersonIcon from '@material-ui/icons/Person'
-import * as moment from 'moment';
+import moment from 'moment';
 
 const styles: any = theme => ({
     img: {
@@ -47,12 +47,12 @@ class SimpleBookView extends React.Component<ISimpleBookViewProps, any> {
         if (!small) {
             return (
                 <React.Fragment>
-                    <Grid className={classes.paper} container spacing={16}>
+                    <Grid className={classes.paper} container spacing={4}>
                         <Grid item>
                             <img src={this.props.book ? this.props.book.ThumbnailURL : undefined} />
                         </Grid>
                         <Grid item xs={12} sm container>
-                            <Grid item xs container direction="column" spacing={16}>
+                            <Grid item xs container direction="column" spacing={4}>
                                 <Grid item xs>
                                     <Typography gutterBottom variant="h5">
                                         {`${this.props.book ? this.props.book.Title : null}`}
@@ -97,12 +97,12 @@ class SimpleBookView extends React.Component<ISimpleBookViewProps, any> {
         return (
             <React.Fragment>
                 <Paper className={classes.smallPaper}>
-                    <Grid container spacing={16}>
+                    <Grid container spacing={4}>
                         <Grid item>
                             <img src={this.props.book ? this.props.book.ThumbnailURL : undefined} />
                         </Grid>
                         <Grid item xs={12} sm container>
-                            <Grid item xs container direction="column" spacing={16}>
+                            <Grid item xs container direction="column" spacing={4}>
                                 <Grid item xs>
                                     <Typography gutterBottom variant="h5">
                                         {this.props.book ? this.props.book.Title : null}

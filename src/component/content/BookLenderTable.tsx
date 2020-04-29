@@ -64,7 +64,7 @@ class BookLenderTable extends React.Component<IBookLenderTableInfo, any>{
         const { classes, book } = this.props;
         if(this.bookLenderInfos){
             return(
-                <Table className={classes.root} padding='dense'>
+                <Table className={classes.root} size='small'>
                     <TableHead>
                         <TableRow>
                             <TableCell>Lender</TableCell>

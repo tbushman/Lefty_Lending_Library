@@ -28,7 +28,7 @@ class UserSettingsPanel extends React.Component<IUserSettingsPanelProps, any>{
         const {userStore} = this.props;
 
         return (
-            <Grid container spacing={16}>
+            <Grid container spacing={4}>
                 <Grid item xs={3}>
                     <Card>
                         <CardHeader title={'Theme Settings'} />

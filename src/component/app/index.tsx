@@ -32,7 +32,8 @@ class App extends React.Component<any, any> {
               main: '#FFAAAA'
           }
         },
-        typography: { useNextVariants: true }
+        typography: { 
+        }
     });
     
     return (

@@ -21,9 +21,9 @@ export class Client {
     private bookSerializer: TypedJSON<Book>;
 
     constructor(){
-        storage.settings({
-            timestampsInSnapshots: true
-        });
+        // storage.settings({
+        //     timestampsInSnapshots: true
+        // });
         this.users = new UserMethods(storage);
         this.books = new BookMethods(storage);
         this.googleBooks = new GoogleBooksMethods();

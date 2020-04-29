@@ -50,7 +50,7 @@ class BookDetails extends React.Component<IBookDetailsProps, any> {
 
         return (
             <div>
-                <Grid className={classes.root} container spacing={8}>
+                <Grid className={classes.root} container spacing={2}>
                     <Grid item xs={2}>
                         <img src={book.ThumbnailURL ? book.ThumbnailURL : undefined} />
                     </Grid>

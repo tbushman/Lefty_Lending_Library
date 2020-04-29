@@ -33,6 +33,7 @@ export class UserMethods {
     // }
 
     public async createUser(newUser: User){
+      console.log(newUser)
         try{
             await this._storage.collection(Collections.USERS_COLLECTION).doc(newUser.uid).set({... newUser});
             return Promise.resolve();

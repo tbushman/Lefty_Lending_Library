@@ -1,6 +1,5 @@
 import dotenv from 'dotenv';
-dotenv.config();
-import { envConfig } from '../../config';
+import envConfig from '../../config/env.config';
 import { 
   Book, 
   // BookLenderInfo 
@@ -11,12 +10,13 @@ import * as React from 'react';
 import GooglePicker from 'react-google-picker';
 // import { Button, DialogActions } from '@material-ui/core';
 // import { BookCondition } from 'data/enums';
-import * as path from 'path';
+// import * as path from 'path';
 import { inject, observer } from 'mobx-react';
 import { 
   // bookStore, 
   // userStore 
 } from 'stores';
+dotenv.config();
 
 interface ISyncGoogleSheetsDialogProps {
     open: boolean,
@@ -61,13 +61,17 @@ class SyncGoogleSheetDialog extends React.Component<ISyncGoogleSheetsDialogProps
   state = initialState;
   scopes = [
     // 'https://www.googleapis.com/auth/plus.login',
-    'https://www.googleapis.com/auth/userinfo.email', 
-    'https://www.googleapis.com/auth/userinfo.profile', 
-    'https://www.googleapis.com/auth/drive', 'https://www.googleapis.com/auth/drive.appdata', 'https://www.googleapis.com/auth/drive.metadata', 'https://www.googleapis.com/auth/drive.file'
+    // 'https://www.googleapis.com/auth/userinfo.email', 
+    // 'https://www.googleapis.com/auth/userinfo.profile', 
+    'email',
+    'profile',
+    'https://www.googleapis.com/auth/drive.appdata', 
+    'https://www.googleapis.com/auth/drive.file'
   ];
-  keyfile = path.join(__dirname, '../../../', envConfig.googleApplicationCredentials);
-  key = require(this.keyfile);
-  clientId = this.key.client_id;
+  // keyUrl = '../../../admin/LLL-serviceAccountKey.secret.json'//path.join(__dirname, '../../', 'admin/LLL-serviceAccountKey.secret.json');
+  // keyfile = require(this.keyUrl);
+  // key = require(this.keyfile);
+  // clientId = this.key.client_id;
   developerKey = envConfig.googleKey;
   
   // private handleSearchISBN = async(isbn: string) => {
@@ -160,25 +164,25 @@ class SyncGoogleSheetDialog extends React.Component<ISyncGoogleSheetsDialogProps
     //       // Notes	
     //       // ISBN (No Spaces/Dashes)																				
     // 
-          let newRow: NewRow = {};
-          let keys = [
-            'author',
-            'title',
-            'editor',
-            'edition',
-            'keywords',
-            'physical',
-            'pdf',
-            'url',
-            'copies',
-            'lender',
-            'borrower',
-            'checkout',
-            'return',
-            'underlining',
-            'notes',
-            'isbn',
-          ]
+          // let newRow: NewRow = {};
+          // let keys = [
+          //   'author',
+          //   'title',
+          //   'editor',
+          //   'edition',
+          //   'keywords',
+          //   'physical',
+          //   'pdf',
+          //   'url',
+          //   'copies',
+          //   'lender',
+          //   'borrower',
+          //   'checkout',
+          //   'return',
+          //   'underlining',
+          //   'notes',
+          //   'isbn',
+          // ]
     //       // let nullcount = 0;
     //       await row.forEach(function(c, j){
     //         // const authorKey = /author\(s\)/gi.test(c);
@@ -216,8 +220,11 @@ class SyncGoogleSheetDialog extends React.Component<ISyncGoogleSheetsDialogProps
   
   public render() {
       // return (<div></div>)
+      // console.log(envConfig.googleApplicationCredentials);
+
       return (
-        <GooglePicker clientId={this.clientId}//'your-client-id'
+        <GooglePicker 
+        //clientId={this.clientId}//'your-client-id'
                 developerKey={this.developerKey}//'your-developer-key'
                 scope={this.scopes}
                 onChange={this.pickerCallback}

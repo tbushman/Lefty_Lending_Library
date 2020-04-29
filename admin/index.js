@@ -21,14 +21,14 @@ switch (process.argv[2]) {
     databaseURL = "https://leftylendinglibrary-staging.firebaseio.com";
     break;
   default: //dev
-    serviceAccountJsonPath = "./LLL-serviceAccountKey.secret.json";
+    serviceAccountJsonPath = "./LLL-serviceAccountKey.secret.json";//"../../leftylendinglibrary-firebase-adminsdk-lm7m4-081a5b759c.json";
     databaseURL = "https://leftylendinglibrary.firebaseio.com";
 }
 
-var serviceAccount = require(serviceAccountJsonPath);
-
+export const serviceAccountFile = require(serviceAccountJsonPath);
+// var serviceAccountKey = serviceAccountFile.private_key;
 admin.initializeApp({
-  credential: admin.credential.applicationDefault(),//admin.credential.cert(serviceAccount),
+  credential: admin.credential.cert(serviceAccountFile),//admin.credential.applicationDefault(),
   databaseURL: databaseURL
 });
 

@@ -75,7 +75,7 @@ class Library extends React.Component<ILibraryProps, ILibraryState> {
         const { selectedTab } = this.state;
 
         return(
-            <div className={classes.root} style={{bottom:0,top:0,left:0,right:0,position:'absolute','overflow-y':'scroll','overflow-x':'hidden'}}>
+            <div className={classes.root} style={{bottom:0,top:0,left:0,right:0,position:'absolute',overflowY:'scroll',overflowX:'hidden'}}>
                 <AppBar position="static" className={classes.tight}>
                     <Tabs value={selectedTab} onChange={this.handleTabChange}>
                         <Tab label={LibraryTabs.Books} value={LibraryTabs.Books}/>

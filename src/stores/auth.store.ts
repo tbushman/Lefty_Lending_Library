@@ -60,7 +60,7 @@ export class AuthStore {
      * Gets whether the user is logged in or not
      */
     @computed
-    public get isAuthenticated() : boolean{
+    public get isAuthenticated() : boolean {
         return this.firebaseUser !== null;
     }
 
@@ -69,20 +69,24 @@ export class AuthStore {
             signInFlow: 'popup',
             signInOptions: [
                 firebase.auth.EmailAuthProvider.PROVIDER_ID,
-                {
-                  provider: firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-                  scopes: [
-                    'https://www.googleapis.com/auth/plus.login',
-                    'https://www.googleapis.com/auth/userinfo.email', 
-                    'https://www.googleapis.com/auth/userinfo.profile', 
-                    'https://www.googleapis.com/auth/drive', 'https://www.googleapis.com/auth/drive.appdata', 'https://www.googleapis.com/auth/drive.metadata', 'https://www.googleapis.com/auth/drive.file'
-                  ],
-                  customParameters: {
-                    // Forces account selection even when one account
-                    // is available.
-                    prompt: 'select_account'
-                  }
-                }
+                firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+                // {
+                //   provider: firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+                //   scopes: [
+                //     // 'https://www.googleapis.com/auth/plus.login',
+                //     // 'https://www.googleapis.com/auth/userinfo.email', 
+                //     // 'https://www.googleapis.com/auth/userinfo.profile', 
+                //     'email',
+                //     'profile',
+                //     'https://www.googleapis.com/auth/drive.appdata', 
+                //     'https://www.googleapis.com/auth/drive.file'
+                //   ],
+                //   customParameters: {
+                //     // Forces account selection even when one account
+                //     // is available.
+                //     prompt: 'select_account'
+                //   }
+                // }
             ],
             callbacks: {
                 signInSuccessWithAuthResult: () => false,
