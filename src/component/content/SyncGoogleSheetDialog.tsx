@@ -11,20 +11,20 @@ import GooglePicker from 'react-google-picker';
 // import { Button, DialogActions } from '@material-ui/core';
 // import { BookCondition } from 'data/enums';
 // import * as path from 'path';
-import { inject, observer } from 'mobx-react';
+// import { inject, observer } from 'mobx-react';
 import { 
   // bookStore, 
   // userStore 
 } from 'stores';
 dotenv.config();
 
-interface ISyncGoogleSheetsDialogProps {
+interface IAddContentDialogProps {
     open: boolean,
     onClose: any,
     // classes: any
 }
 
-interface ISyncGoogleSheetsDialogState {
+interface IAddContentDialogState {
     pendingBook: Book | null;
     pendingISBN: string | null;
     bookExistsInBackend: boolean;
@@ -55,9 +55,9 @@ const initialState = {
     bookExistsInBackend: false
 };
 
-@inject('bookStore', 'authStore', 'userStore')
-@observer
-class SyncGoogleSheetDialog extends React.Component<ISyncGoogleSheetsDialogProps, ISyncGoogleSheetsDialogState> {
+// @inject('bookStore', 'authStore', 'userStore')
+// @observer
+class SyncGoogleSheetDialog extends React.Component<IAddContentDialogProps, IAddContentDialogState> {
   state = initialState;
   scopes = [
     // 'https://www.googleapis.com/auth/plus.login',
@@ -68,10 +68,11 @@ class SyncGoogleSheetDialog extends React.Component<ISyncGoogleSheetsDialogProps
     'https://www.googleapis.com/auth/drive.appdata', 
     'https://www.googleapis.com/auth/drive.file'
   ];
-  // keyUrl = '../../../admin/LLL-serviceAccountKey.secret.json'//path.join(__dirname, '../../', 'admin/LLL-serviceAccountKey.secret.json');
-  // keyfile = require(this.keyUrl);
-  // key = require(this.keyfile);
-  // clientId = this.key.client_id;
+  // code/src/firebasesecrets/firebasesecrets/LLL-serviceAccountKey.secret.json
+  // keyUrl = path.join(__dirname, '../../', '');
+  keyfile = require('firebasesecrets/leftylendinglibrary-firebase-adminsdk-lm7m4-081a5b759c.json');
+  key = JSON.stringify(this.keyfile);
+  clientId = JSON.parse(this.key).client_id;
   developerKey = envConfig.googleKey;
   
   // private handleSearchISBN = async(isbn: string) => {
@@ -221,10 +222,10 @@ class SyncGoogleSheetDialog extends React.Component<ISyncGoogleSheetsDialogProps
   public render() {
       // return (<div></div>)
       // console.log(envConfig.googleApplicationCredentials);
-
+      // alert(JSON.stringify(this.keyfile))
       return (
         <GooglePicker 
-        //clientId={this.clientId}//'your-client-id'
+                clientId={this.clientId}//'your-client-id'
                 developerKey={this.developerKey}//'your-developer-key'
                 scope={this.scopes}
                 onChange={this.pickerCallback}

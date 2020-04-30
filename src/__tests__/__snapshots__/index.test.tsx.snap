@@ -1,0 +1,124 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SyncGoogleSheetDialog API calls should load app 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "AuthStore": [Function],
+      "BookStore": [Function],
+      "RouterStore": [Function],
+      "UserStore": [Function],
+      "authStore": AuthStore {
+        "determineAdminStatus": [Function],
+        "displayLogin": false,
+        "firebaseUser": null,
+        "getExistingUser": [Function],
+        "initializing": false,
+        "isAdmin": false,
+        "login": [Function],
+        "logout": [Function],
+        "maxDisplayNameLength": 50,
+        "newUser": false,
+        "onAuthChanged": [Function],
+        "onFinalizeUserCreation": [Function],
+        "syncing": false,
+        "toggleDisplayLogin": [Function],
+        "uiConfig": Object {
+          "callbacks": Object {
+            "signInSuccessWithAuthResult": [Function],
+          },
+          "signInFlow": "popup",
+          "signInOptions": Array [
+            Object {
+              "customParameters": Object {
+                "prompt": "select_account",
+              },
+              "provider": "google.com",
+              "scopes": Array [
+                "email",
+                "profile",
+                "https://www.googleapis.com/auth/drive.appdata",
+                "https://www.googleapis.com/auth/drive.file",
+              ],
+            },
+          ],
+        },
+      },
+      "bookStore": BookStore {
+        "createBookAndAssociateWithLender": [Function],
+        "createBookIfDoesntExist": [Function],
+        "findBookOnlineByISBN": [Function],
+        "getBook": [Function],
+        "getBookLenderInfos": [Function],
+        "getIsbn13": [Function],
+        "onLenderBooksChanged": [Function],
+        "onUserAuthenticated": [Function],
+      },
+      "routerStore": RouterStore {
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "history": Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+          "subscribe": [Function],
+          "unsubscribe": [Function],
+        },
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      },
+      "userStore": UserStore {
+        "onUserAuthenticated": [Function],
+        "setUserTheme": [Function],
+      },
+    }
+  }
+>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+        "subscribe": [Function],
+        "unsubscribe": [Function],
+      }
+    }
+  >
+    <withRouter(inject-with-userStore(App)) />
+  </Router>
+</ContextProvider>
+`;

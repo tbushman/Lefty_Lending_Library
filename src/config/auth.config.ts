@@ -23,18 +23,38 @@ else if(buildType === "staging"){
 //Dev
 else {
     config = {
-        apiKey: "AIzaSyAwA1MMLiWA19hmOwNOyAtmG2lW_Uuh3gc",
-        authDomain: "leftylendinglibrary-c85d7.firebaseapp.com",
-        databaseURL: "https://leftylendinglibrary-c85d7.firebaseio.com",
-        projectId: "leftylendinglibrary-c85d7",
-        storageBucket: "leftylendinglibrary-c85d7.appspot.com",
-        messagingSenderId: "977740674552"
-        // apiKey: envConfig.googleKey,
-        // authDomain: "leftylendinglibrary.firebaseapp.com",
-        // databaseURL: "https://leftylendinglibrary.firebaseio.com",
-        // projectId: "leftylendinglibrary",
-        // storageBucket: "leftylendinglibrary.appspot.com",
-        // messagingSenderId: "702897100741",
+        // apiKey: "AIzaSyAwA1MMLiWA19hmOwNOyAtmG2lW_Uuh3gc",
+        // authDomain: "leftylendinglibrary-c85d7.firebaseapp.com",
+        // databaseURL: "https://leftylendinglibrary-c85d7.firebaseio.com",
+        // projectId: "leftylendinglibrary-c85d7",
+        // storageBucket: "leftylendinglibrary-c85d7.appspot.com",
+        // messagingSenderId: "977740674552",
+        // scopes: [
+        //       'email',
+        //       'profile',
+        //       'https://www.googleapis.com/auth/drive.appdata', 
+        //       'https://www.googleapis.com/auth/drive.file'
+        // ],
+        // discoveryDocs: [
+        //   "https://sheets.googleapis.com/$discovery/rest?version=v4"
+        // ]
+        apiKey: envConfig.googleKey,
+        authDomain: "leftylendinglibrary.firebaseapp.com",
+        databaseURL: "https://leftylendinglibrary.firebaseio.com",
+        projectId: "leftylendinglibrary",
+        storageBucket: "leftylendinglibrary.appspot.com",
+        messagingSenderId: "702897100741",
+        clientId: envConfig.googleOauthClientId,
+        scopes: [
+              'email',
+              'profile',
+              'https://www.googleapis.com/auth/drive.appdata', 
+              'https://www.googleapis.com/auth/drive.file'
+        ],
+        discoveryDocs: [
+          "https://sheets.googleapis.com/$discovery/rest?version=v4"
+          // "https://www.googleapis.com/discovery/v1/apis/drive/v2/rest"
+        ]
         // appId: "1:702897100741:web:56e2ea67d96f60cf1addac"
     }
     // console.log(config)
